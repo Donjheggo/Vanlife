@@ -35,12 +35,10 @@ const Vans = () => {
   }
 
 
-  React.useEffect( () => {
-    console.log(vans)
-  }, [vans])
-  
+  const filteredVans = vans.filter(van => !van.isFiltered)
 
-  const elements = vans.map(item => (
+
+  const elements = filteredVans.map(item => (
     <Van 
       key={item.id}
       name={item.name}
@@ -51,6 +49,7 @@ const Vans = () => {
     />
     ) 
   )
+
 
   return (
     <div className='vans container'> 
