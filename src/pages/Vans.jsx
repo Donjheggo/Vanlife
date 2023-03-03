@@ -5,7 +5,42 @@ import vandata from '../vandata'
 
 const Vans = () => {
 
-  const elements = vandata.map(item => (
+  const vansElements = () => {
+    let elements = []
+    for(let i = 0; i < vandata.length; i ++){
+      elements.push({
+        id: vandata[i].id,
+        image: vandata[i].image,
+        name: vandata[i].name,
+        price: vandata[i].price,
+        type: vandata[i].type,
+        isFiltered: false
+      })
+    }
+    return elements;
+  }
+
+  const [vans, setVans] = React.useState(vansElements())
+
+
+  const filter = (type) => {
+    setVans(prev => prev.map(van => {
+      return van.type === type ? van : {...van, isFiltered: !van.isFiltered} 
+    }))
+  };
+
+
+  const clearFilter = () => {
+    setVans(vansElements())
+  }
+
+
+  React.useEffect( () => {
+    console.log(vans)
+  }, [vans])
+  
+
+  const elements = vans.map(item => (
     <Van 
       key={item.id}
       name={item.name}
@@ -21,10 +56,10 @@ const Vans = () => {
     <div className='vans container'> 
       <p className='vans-title'>Explore our van options</p>
       <div className='row'>
-        <button className='filter-btn col'>Simple</button>
-        <button className='filter-btn col'>Luxury</button>
-        <button className='filter-btn col'>Rugged</button>
-        <button className='clearfilter-btn col'>Clear filters</button>
+        <button onClick={() => filter('Simple')} className='filter-btn col'>Simple</button>
+        <button onClick={() => filter('Luxury')} className='filter-btn col'>Luxury</button>
+        <button onClick={() => filter('Rugged')} className='filter-btn col'>Rugged</button>
+        <button onClick={clearFilter} className='clearfilter-btn col'>Clear filters</button>
       </div>
       <div className='row-van vans-imgs'>
         {elements}

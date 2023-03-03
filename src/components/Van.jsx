@@ -18,15 +18,21 @@ const Van = (props) => {
     <div className='col'>
         <img src={props.image} className="van-img" />
         <div className='d-flex'>
-            <p className='van-name'>{props.name}</p>
-            <p className='van-price ml-auto pr-1'>
-                ${props.price} 
-                <span className='price-perday'><br/>
-                /day
-                </span>
-            </p>
+            <div>
+              <p className='van-name'>{props.name}</p>
+              <button className="van-btn" style={btnColor}>{props.type}</button> 
+            </div>
+            <div className='ml-auto pr-1'>
+              <p className='van-price'>
+                  ${props.price} 
+                  <span className='price-perday'><br/>
+                  /day
+                  </span>
+              </p>
+            </div>
+
         </div>
-        <button className="van-btn" style={btnColor}>{props.type}</button> 
+        
     </div>
   )
 }
