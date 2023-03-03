@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
         Add adventure to your life by joining the #vanlife movement. <br/>
         Rent the perfect van to make your perfect road trip.
         </h5>
-        <button className='find-btn'>Find your van</button>
+        <div className='pb-3 pt-3'>
+          <Link className='find-btn' to="/vans">Find your van</Link>
+        </div>
       </div>
     </div>
   )

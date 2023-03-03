@@ -8,6 +8,12 @@ import six from '/images/vans/6.jpg';
 
 
 const Van = (props) => {
+
+  const btnColor = {
+    backgroundColor: props.type === 'Simple' ? '#E17654' : props.type === 'Rugged' ? '#115E59' : '#161616'
+  }
+
+
   return (
     <div className='col'>
         <img src={props.image} className="van-img" />
@@ -20,7 +26,7 @@ const Van = (props) => {
                 </span>
             </p>
         </div>
-        <button className="van-btn">{props.type}</button> 
+        <button className="van-btn" style={btnColor}>{props.type}</button> 
     </div>
   )
 }

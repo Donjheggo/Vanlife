@@ -24,12 +24,15 @@ nav {
     font-style: normal;
     font-weight: 900;
     font-size: 25.3531px;
+    color: #252525;
     
 }
 
 a {
     text-decoration: none;
+
 }
+
 
 .links {
     margin-left: auto;
@@ -37,7 +40,7 @@ a {
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    color: #4D4D4D;
+    color: #4D4D4D !important;
 }
 
 .about-link{
@@ -94,7 +97,7 @@ footer {
     color: #FFFFFF;
     cursor: pointer;
     margin-bottom: 3rem;
-
+    padding: 1rem 12rem 1rem 12rem;
 }
 
 .filter-btn{
@@ -152,12 +155,16 @@ footer {
     border-radius: .3rem;
 }
 
-.about-btn{
+.explore-btn{
     background-color: black;
     color: white;
     border-radius: .4rem;
-    padding: .7rem;
     cursor: pointer;
+    width: 174px;
+    height: 49px;
+    padding: 1rem;
+    font-size: 15.9462px;
+
 }
 
 .vans{
@@ -202,7 +209,7 @@ footer {
 .row-van{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding-top: 2.5 rem;
+    padding-top: 2.5rem;
     gap: 20px;
 }
 
@@ -251,6 +258,7 @@ footer {
     font-size: 14px;
 }
 
+
 .van-btn{
     width: 85.71px;
     height: 33.89px;
@@ -262,4 +270,26 @@ footer {
     color: white;
     cursor: pointer;
 
+}
+
+.simple-btn{
+    background-color: #E17654;
+}
+
+
+.rugged-btn{
+    background-color: #115E59;
+}
+
+.lux-btn{
+    background-color: #161616;
+}
+
+
+.pb-3{
+    padding-bottom: 3rem;
+}
+
+.pt-3{
+    padding-top: 3rem;
 }

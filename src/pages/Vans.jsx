@@ -12,6 +12,7 @@ const Vans = () => {
       price={item.price}
       type={item.type}
       image={item.image}
+      btn={item.type}
     />
     ) 
   )
