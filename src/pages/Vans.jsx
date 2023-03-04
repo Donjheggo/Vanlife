@@ -25,7 +25,7 @@ const Vans = () => {
 
   const filter = (type) => {
     setVans(prev => prev.map(van => {
-      return van.type === type ? van : {...van, isFiltered: !van.isFiltered} 
+      return van.type === type ? {...van, isFiltered: false} : {...van, isFiltered: true} 
     }))
   };
 
