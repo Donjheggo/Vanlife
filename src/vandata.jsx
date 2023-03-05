@@ -15,7 +15,7 @@ export default [
     },
     {
         id: 3, 
-        name: 'Reliable', 
+        name: 'Reliable Red', 
         price: '100',
         type: 'Luxury',
         image: '/images/vans/3.jpg'

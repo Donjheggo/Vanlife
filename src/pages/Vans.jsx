@@ -1,27 +1,27 @@
 import React from 'react';
 import Van from '../components/Van'
-import vandata from '../vandata'
 
 
 const Vans = () => {
 
-  const vansElements = () => {
-    let elements = []
-    for(let i = 0; i < vandata.length; i ++){
-      elements.push({
-        id: vandata[i].id,
-        image: vandata[i].image,
-        name: vandata[i].name,
-        price: vandata[i].price,
-        type: vandata[i].type,
-        isFiltered: false
+  const [vans, setVans] = React.useState([])
+
+  React.useEffect( () => {
+    fetch("/api/vans")
+      .then(res => res.json())
+      .then(data => {
+        const van = data.vans.map(van => ({
+          id: van.id,
+          image: van.image,
+          name: van.name,
+          type: van.type,
+          description: van.description,
+          price: van.price,
+          isFiltered: false
+        }))
+        setVans(van)
       })
-    }
-    return elements;
-  }
-
-  const [vans, setVans] = React.useState(vansElements())
-
+  },[])
 
   const filter = (type) => {
     setVans(prev => prev.map(van => {
@@ -29,14 +29,11 @@ const Vans = () => {
     }))
   };
 
-
   const clearFilter = () => {
-    setVans(vansElements())
+    setVanData(prev => prev.map(van => ({...van, isFiltered: false})))
   }
 
-
   const filteredVans = vans.filter(van => !van.isFiltered)
-
 
   const elements = filteredVans.map(item => (
     <Van 
@@ -49,8 +46,7 @@ const Vans = () => {
     />
     ) 
   )
-
-
+ 
   return (
     <div className='vans container'> 
       <p className='vans-title'>Explore our van options</p>
