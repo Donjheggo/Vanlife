@@ -196,7 +196,7 @@ footer {
 }
 
 
-.van-img{
+.vans-img{
     width: 229.23px;
     height: 229.23px;
     border-radius: 5px;
@@ -239,14 +239,14 @@ footer {
 
 .van-name{
     font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 32px;
 }
 
 .van-price{
     font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 24px;
 }
 
 .price-perday{
@@ -255,6 +255,19 @@ footer {
     font-size: 14px;
 }
 
+
+.vans-btn{
+    width: 85.71px;
+    height: 33.89px;
+    background-color: #E17654;
+    border: 0;
+    border-radius: .3rem;
+    font-weight: 300;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+
+}
 
 .van-btn{
     width: 85.71px;
@@ -266,6 +279,7 @@ footer {
     font-size: 16px;
     color: white;
     cursor: pointer;
+    margin-top: 2rem;
 
 }
 
@@ -289,4 +303,32 @@ footer {
 
 .pt-3{
     padding-top: 3rem;
+}
+
+.van-img{
+    width: 497.32px;
+    height: 490.35px;
+    margin-top: 25px;
+}
+
+.van-name{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.van-desc{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.rent-btn{
+    background-color: #FF8C38;
+    color: white;
+    padding: 1rem 0 1rem 0;
+    border-radius: 4.98319px;
+    text-align: center;
+    width: 494.33px;
+    margin-bottom: 1rem;
+    font-size: 18px;
 }

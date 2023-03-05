@@ -9,14 +9,14 @@ const Van = (props) => {
 
   return (
     <div className='col'>
-        <img src={props.image} className="van-img" />
+        <img src={props.image} className="vans-img" />
         <div className='d-flex'>
             <div>
-              <p className='van-name'>{props.name}</p>
-              <button className="van-btn" style={btnColor}>{props.type}</button> 
+              <p className='vans-name'>{props.name}</p>
+              <button className="vans-btn" style={btnColor}>{props.type}</button> 
             </div>
             <div className='ml-auto pr-1'>
-              <p className='van-price'>
+              <p className='vans-price'>
                   ${props.price} 
                   <span className='price-perday'><br/>
                   /day

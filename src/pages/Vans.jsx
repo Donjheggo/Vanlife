@@ -1,5 +1,6 @@
 import React from 'react';
 import Van from '../components/Van'
+import { Link } from 'react-router-dom';
 
 
 const Vans = () => {
@@ -36,14 +37,18 @@ const Vans = () => {
   const filteredVans = vans.filter(van => !van.isFiltered)
 
   const elements = filteredVans.map(item => (
-    <Van 
-      key={item.id}
-      name={item.name}
-      price={item.price}
-      type={item.type}
-      image={item.image}
-      btn={item.type}
-    />
+    <>
+      <Link to={`/vans/${item.id}`} style={{fontSize: 'inherit', color: 'inherit'}}>
+        <Van 
+          key={item.id}
+          name={item.name}
+          price={item.price}
+          type={item.type}
+          image={item.image}
+          btn={item.type}
+        />
+      </Link>
+    </>
     ) 
   )
  
