@@ -1,9 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import About from '../pages/About'
-import Vans from '../pages/Vans'
-import Home from '../pages/Home'
-import VanDetails from '../pages/VanDetails'
+import {Link } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -24,12 +20,6 @@ const Navbar = () => {
             <Link className='vans-link' to="/vans" style={anchorStyle}>Vans</Link>
           </div>
         </nav>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/vans" element={<Vans />}/>
-          <Route path="/vans/:id" element={<VanDetails />}/>
-        </Routes>
       </div>
 
   )
