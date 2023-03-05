@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
+import backimg from '/images/backicon.svg'
 
 const VanDetails = () => {
     const params = useParams()
@@ -18,7 +19,7 @@ const VanDetails = () => {
     return (
         <div className='van-details container'>
             <div>
-                <Link to="/vans">Back to all vans</Link>
+                <Link to="/vans" style={{color: "inherit"}}> <img src={backimg} /> Back to all vans</Link>
             </div>
             <img src={van.image} alt="van-img" className='van-img' />
             <div>
