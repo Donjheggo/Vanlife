@@ -31,13 +31,13 @@ const Vans = () => {
   };
 
   const clearFilter = () => {
-    setVanData(prev => prev.map(van => ({...van, isFiltered: false})))
+    setVans(prev => prev.map(van => ({...van, isFiltered: false})))
   }
 
   const filteredVans = vans.filter(van => !van.isFiltered)
 
   const elements = filteredVans.map(item => (
-    <>
+    <div key={item.id}>
       <Link to={`/vans/${item.id}`} style={{fontSize: 'inherit', color: 'inherit'}}>
         <Van 
           key={item.id}
@@ -48,7 +48,7 @@ const Vans = () => {
           btn={item.type}
         />
       </Link>
-    </>
+    </div>
     ) 
   )
  
