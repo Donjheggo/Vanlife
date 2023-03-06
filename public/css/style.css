@@ -26,12 +26,21 @@ nav {
     font-weight: 900;
     font-size: 25.3531px;
     color: #252525;
-    
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 
+}
+
+a:hover {
+    font-weight: 900;
+}
+
+.active-link{
+    font-weight: 900;
+    text-decoration: underline;
 }
 
 
@@ -44,7 +53,7 @@ a {
     color: #4D4D4D !important;
 }
 
-.about-link{
+.about-link, .admin-link{
     padding-right: 1rem;
 }
 
@@ -332,4 +341,32 @@ footer {
     width: 494.33px;
     margin: 2rem 0 5rem 0;
     font-size: 18px;
+}
+
+.admin-links{
+    display: flex;
+    gap: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    font-style: normal;
+    color: #4D4D4D;
+}
+
+.admin-van-img{
+    width: 65.88px;
+    height: 65.88px;
+    border-radius: 5px;
+}
+
+.admin-van{
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.admin-van-data{
+    padding-left: 20px;
+}
+
+.p-2{
+    padding: 20px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Van from '../components/Van'
+import Van from '../../components/Van'
 import { Link } from 'react-router-dom';
 
 
@@ -38,7 +38,7 @@ const Vans = () => {
 
   const elements = filteredVans.map(item => (
     <div key={item.id}>
-      <Link to={`/vans/${item.id}`} style={{fontSize: 'inherit', color: 'inherit'}}>
+      <Link to={`/vans/${item.id}`}>
         <Van 
           key={item.id}
           name={item.name}

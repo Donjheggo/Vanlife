@@ -19,7 +19,7 @@ const VanDetails = () => {
     return (
         <div className='van-details container'>
             <div>
-                <Link to="/vans" style={{color: "inherit"}}> <img src={backimg} /> Back to all vans</Link>
+                <Link to="/vans"> <img src={backimg} /> Back to all vans</Link>
             </div>
             <img src={van.image} alt="van-img" className='van-img' />
             <div>
@@ -29,7 +29,7 @@ const VanDetails = () => {
             <p className='van-price' style={{marginTop: '-15px'}}>${van.price}/day</p>
             <p className='van-desc'>{van.description}</p>
             <div className="rent-btn">
-                <Link style={{color: 'inherit'}}>Rent this van</Link>
+                <Link >Rent this van</Link>
             </div>
         </div>
     )
