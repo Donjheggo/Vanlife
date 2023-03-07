@@ -419,6 +419,13 @@ footer {
     align-self: center;
 }
 
+.admin-vanroute-img{
+    width: 103px;
+    height: 101.56px;
+    padding-top: 30px;
+    border-radius: 5px;
+}
+
 .admin-vanroute-details{
     font-weight: bold;
 }
