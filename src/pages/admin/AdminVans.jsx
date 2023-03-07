@@ -1,5 +1,6 @@
 import React from 'react'
 import AdminVan from '../../components/admin/AdminVan'
+import { Link } from 'react-router-dom'
 
 const AdminVans = () => {
 
@@ -12,12 +13,15 @@ const AdminVans = () => {
   }, [])
 
   const elements = vans.map(van => (
-  <AdminVan
-    key={van.id}
-    name={van.name}
-    price={van.price}
-    image={van.image}
-  />
+  <div key={van.id}>
+    <Link to={`/admin/vans/${van.id}`}>
+      <AdminVan
+        name={van.name}
+        price={van.price}
+        image={van.image}
+      />
+    </Link>
+  </div>
   )
   )
 

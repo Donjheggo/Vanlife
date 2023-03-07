@@ -29,7 +29,7 @@ const VanDetails = () => {
             <p className='van-price' style={{marginTop: '-15px'}}>${van.price}/day</p>
             <p className='van-desc'>{van.description}</p>
             <div className="rent-btn">
-                <Link >Rent this van</Link>
+                <Link>Rent this van</Link>
             </div>
         </div>
     )

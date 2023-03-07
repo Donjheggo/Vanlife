@@ -11,6 +11,7 @@ import VanDetails from './pages/vans/VanDetails'
 
 import Dashboard from './pages/admin/Dashboard'
 import AdminVans from "./pages/admin/AdminVans"
+import AdminVanDetails from './pages/admin/AdminVanDetails'
 import Reviews from "./pages/admin/Reviews"
 import Income from "./pages/admin/Income"
 
@@ -35,6 +36,7 @@ const App = () => {
                 <Route index element={<Dashboard/>}/>
                 <Route path="income" element={<Income/>} />
                 <Route path="vans" element={<AdminVans/>}/>
+                <Route path="vans/:id" element={<AdminVanDetails/>}/>
                 <Route path="reviews" element={<Reviews/>}/>
               </Route>
 
