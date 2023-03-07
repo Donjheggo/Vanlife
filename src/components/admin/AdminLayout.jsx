@@ -10,13 +10,13 @@ const AdminLayout = () => {
             to="/admin" end>Dashboard</NavLink>
             <NavLink 
             className={({isActive}) => isActive ? "active-link" : ""}
-            to="/admin/income">Income</NavLink>
+            to="income">Income</NavLink>
             <NavLink 
             className={({isActive}) => isActive ? "active-link" : ""}
-            to="/admin/vans">Vans</NavLink>
+            to="vans">Vans</NavLink>
             <NavLink 
             className={({isActive}) => isActive ? "active-link" : ""}
-            to="/admin/reviews">Reviews</NavLink>
+            to="reviews">Reviews</NavLink>
         </nav>
         <Outlet/>
     </div>

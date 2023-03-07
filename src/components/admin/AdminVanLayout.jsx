@@ -23,7 +23,7 @@ const AdminVanLayout = () => {
   return (
     <div className='container mb-5'>
       <div className='mt-4'>
-        <NavLink to="/admin/vans"> <img src={backimg} /> Back to all vans</NavLink>
+        <NavLink to="../vans"> <img src={backimg} /> Back to all vans</NavLink>
       </div>
       <div className='container bg-white pt-2 pb-2 mt-2'>
         <div className='d-flex'>
@@ -36,9 +36,9 @@ const AdminVanLayout = () => {
           </div>
         </div>
         <nav className='admin-van-links'>
-          <NavLink end to={`/admin/vans/${params.id}`} className={({isActive}) => isActive ? 'active-link' : ""}>Details</NavLink>
-          <NavLink to={`/admin/vans/${params.id}/pricing`} className={({isActive}) => isActive ? 'active-link' : ""}>Pricing</NavLink>
-          <NavLink to={`/admin/vans/${params.id}/photos`} className={({isActive}) => isActive ? 'active-link' : ""}>Photos</NavLink>
+          <NavLink end to="." className={({isActive}) => isActive ? 'active-link' : ""}>Details</NavLink>
+          <NavLink to="./pricing" className={({isActive}) => isActive ? 'active-link' : ""}>Pricing</NavLink>
+          <NavLink to="./photos" className={({isActive}) => isActive ? 'active-link' : ""}>Photos</NavLink>
         </nav>
         <Outlet/>
       </div>
