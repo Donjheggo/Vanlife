@@ -6,17 +6,29 @@ const AdminLayout = () => {
     <div>
         <nav className='admin-links'>
             <NavLink 
-            className={({isActive}) => isActive ? "active-link" : ""}
-            to="/admin" end>Dashboard</NavLink>
+              to="/admin" 
+              end
+              className={({isActive}) => isActive ? "active-link" : ""}>
+              Dashboard
+            </NavLink>
+
             <NavLink 
-            className={({isActive}) => isActive ? "active-link" : ""}
-            to="income">Income</NavLink>
+              to="income"
+              className={({isActive}) => isActive ? "active-link" : ""}>
+              Income
+            </NavLink>
+
             <NavLink 
-            className={({isActive}) => isActive ? "active-link" : ""}
-            to="vans">Vans</NavLink>
+              to="vans"
+              className={({isActive}) => isActive ? "active-link" : ""}>
+              Vans
+            </NavLink>
+
             <NavLink 
-            className={({isActive}) => isActive ? "active-link" : ""}
-            to="reviews">Reviews</NavLink>
+              to="reviews"
+              className={({isActive}) => isActive ? "active-link" : ""}>
+              Reviews
+            </NavLink>
         </nav>
         <Outlet/>
     </div>
