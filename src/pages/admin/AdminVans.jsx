@@ -25,7 +25,6 @@ const AdminVans = () => {
   )
   )
 
-  console.log(vans)
 
   return (
     <div className='container mb-2'>
