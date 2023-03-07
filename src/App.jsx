@@ -16,8 +16,8 @@ import Reviews from "./pages/admin/Reviews"
 import Income from "./pages/admin/Income"
 
 import AdminVanDetails from "./pages/admin/AdminVanDetails"
-import Pricing from './pages/admin/Pricing'
-import Photos from './pages/admin/Photos'
+import AdminVanPricing from './pages/admin/AdminVanPricing'
+import AdminVanPhotos from './pages/admin/AdminVanPhotos'
 
 import './server/server'
 
@@ -41,8 +41,8 @@ const App = () => {
 
                 <Route path="vans/:id" element={<AdminVanLayout/>} >
                   <Route index element={<AdminVanDetails/>}/>
-                  <Route path="pricing" element={<Pricing/>}/>
-                  <Route path="photos" element={<Photos/>}/>
+                  <Route path="pricing" element={<AdminVanPricing/>}/>
+                  <Route path="photos" element={<AdminVanPhotos/>}/>
                 </Route>
 
                 <Route path="reviews" element={<Reviews/>}/>

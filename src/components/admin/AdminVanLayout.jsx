@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, NavLink, Outlet } from 'react-router-dom'
+import backimg from "/images/backicon.svg"
 
 const AdminVanLayout = () => {
 
@@ -20,8 +21,11 @@ const AdminVanLayout = () => {
 
 
   return (
-    <div className='container'>
-      <div className='container bg-white pt-2 pb-2'>
+    <div className='container mb-5'>
+      <div className='mt-4'>
+        <NavLink to="/admin/vans"> <img src={backimg} /> Back to all vans</NavLink>
+      </div>
+      <div className='container bg-white pt-2 pb-2 mt-2'>
         <div className='d-flex'>
           <img src={van.image} className="admin-van-img"/>
           <div className='admin-vanroute-data'>

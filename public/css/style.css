@@ -419,6 +419,18 @@ footer {
     align-self: center;
 }
 
+.admin-vanroute-details{
+    font-weight: bold;
+}
+
+.mt-4{
+    margin-top: 40px;
+}
+
+.f-w-normal{
+    font-weight: normal;
+}
+
 .admin-vanroute-btn{
     width: 69.8px;
     height: 27.59px;
@@ -461,6 +473,10 @@ footer {
 
 .mb-2 {
     margin-bottom: 20px;
+}
+
+.mb-5{
+    margin-bottom: 50px;
 }
 
 .mt-2{
