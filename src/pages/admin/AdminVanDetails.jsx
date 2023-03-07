@@ -1,27 +1,49 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink, Outlet } from 'react-router-dom'
+import backimg from "/images/backicon.svg"
 
-const AdminVanDetails = () => {
-  
-  const params = useParams()
+const AdminVanLayout = () => {
 
-  const [van, setVan] = React.useState([])
+    const params = useParams()
 
-  React.useEffect( () => {
-    fetch(`/api/vans/${params.id}`)
-      .then(res => res.json())
-      .then(data => setVan(data.vans))
-  }, [params.id])
+    const [van, setVan] = React.useState([])
+
+    React.useEffect( () => {
+       fetch(`/api/vans/${params.id}`)
+          .then(res => res.json())
+          .then(data => setVan(data.vans))
+    },[params.id])
+
+
+    const btnColor = {
+      backgroundColor: van.type === 'Simple' ? '#E17654' : van.type === 'Rugged' ? '#115E59' : '#161616'
+  }
 
 
   return (
-    <div className='admin-vanroute-details'>
-      <p>Name: <span className='f-w-normal'>{van.name}</span> </p>
-      <p>Category: <span className='f-w-normal'>{van.type}</span> </p>
-      <p>Description: <span className='f-w-normal'>{van.description}</span></p>
-      <p>Visibility: <span className='f-w-normal'>Public</span> </p>
+    <div className='container mb-5'>
+      <div className='mt-4'>
+        <NavLink to=".." relative="path"> <img src={backimg} /> Back to all vans</NavLink>
+      </div>
+      <div className='container bg-white pt-2 pb-2 mt-2'>
+        <div className='d-flex'>
+          <img src={van.image} className="admin-van-img"/>
+          <div className='admin-vanroute-data'>
+            <button style={btnColor} className='admin-vanroute-btn mt-2'>{van.type}</button>
+            <p className='admin-vanroute-name'>{van.name}<br/>
+              <span className='admin-vanroute-price'>${van.price}<span className='admin-vanroute-day'>/day</span></span>
+            </p>
+          </div>
+        </div>
+        <nav className='admin-van-links'>
+          <NavLink end to="." className={({isActive}) => isActive ? 'active-link' : ""}>Details</NavLink>
+          <NavLink to="pricing" className={({isActive}) => isActive ? 'active-link' : ""}>Pricing</NavLink>
+          <NavLink to="photos" className={({isActive}) => isActive ? 'active-link' : ""}>Photos</NavLink>
+        </nav>
+        <Outlet value={{van}}/>
+      </div>
     </div>
   )
 }
 
-export default AdminVanDetails
+export default AdminVanLayout

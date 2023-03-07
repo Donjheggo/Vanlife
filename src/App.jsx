@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import MainLayout from './components/MainLayout'
 import AdminLayout from './components/admin/AdminLayout'
-import AdminVanLayout from './components/admin/AdminVanLayout'
 
 import About from './pages/About'
 import Vans from './pages/vans/Vans'
@@ -16,6 +15,7 @@ import Reviews from "./pages/admin/Reviews"
 import Income from "./pages/admin/Income"
 
 import AdminVanDetails from "./pages/admin/AdminVanDetails"
+import AdminVanInfo from "./pages/admin/AdminVanInfo"
 import AdminVanPricing from './pages/admin/AdminVanPricing'
 import AdminVanPhotos from './pages/admin/AdminVanPhotos'
 
@@ -40,8 +40,8 @@ const App = () => {
                 <Route path="vans" element={<AdminVans/>}/>
                 <Route path="reviews" element={<Reviews/>}/>
 
-                <Route path="vans/:id" element={<AdminVanLayout/>} >
-                  <Route index element={<AdminVanDetails/>}/>
+                <Route path="vans/:id" element={<AdminVanDetails/>} >
+                  <Route index element={<AdminVanInfo/>}/>
                   <Route path="pricing" element={<AdminVanPricing/>}/>
                   <Route path="photos" element={<AdminVanPhotos/>}/>
                 </Route>
