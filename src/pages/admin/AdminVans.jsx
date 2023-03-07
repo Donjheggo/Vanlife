@@ -1,4 +1,5 @@
 import React from 'react'
+import AdminVan from '../../components/admin/AdminVan'
 
 const AdminVans = () => {
 
@@ -7,20 +8,27 @@ const AdminVans = () => {
   React.useEffect( () => {
       fetch("/api/vans")
         .then(res => res.json())
-        .then(data => setVans(data))
+        .then(data => setVans(data.vans))
   }, [])
 
+  const elements = vans.map(van => (
+  <AdminVan
+    key={van.id}
+    name={van.name}
+    price={van.price}
+    image={van.image}
+  />
+  )
+  )
+
+  console.log(vans)
 
   return (
-    <div className='container'>
-      <p>Your listed vans</p>
-      <div className='admin-van d-flex mt-2 p-2'>
-        <img src="/images/vans/1.jpg" className='admin-van-img'/>
-        <div className='admin-van-data'>
-          <p>Modest Explorer</p>
-          <p>$30/day</p>
-        </div>
-      </div>
+    <div className='container mb-2'>
+      <p className='admin-title'>Your listed vans</p>
+
+      {elements}
+
     </div>
   )
 }

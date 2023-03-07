@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import MainLayout from './components/MainLayout'
-import AdminLayout from './components/AdminLayout'
+import AdminLayout from './components/admin/AdminLayout'
 
 import About from './pages/About'
 import Vans from './pages/vans/Vans'

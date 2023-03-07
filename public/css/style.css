@@ -356,17 +356,45 @@ footer {
     width: 65.88px;
     height: 65.88px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 20px 0 20px 20px;
 }
 
 .admin-van{
     background: #FFFFFF;
     border-radius: 6px;
+    margin-top: 10px;
+}
+
+.admin-title{
+    font-weight: 700;
+    font-size: 32px;
 }
 
 .admin-van-data{
     padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.admin-van-name{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.admin-van-price{
+    font-weight: 500;
+    font-size: 16px;
+    color: #4D4D4D;
 }
 
 .p-2{
     padding: 20px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
 }
