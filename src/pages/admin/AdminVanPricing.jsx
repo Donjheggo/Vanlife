@@ -1,7 +1,9 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 
 const Pricing = () => {
+
+  const {van} = useOutletContext()
 
   return (
     <div>

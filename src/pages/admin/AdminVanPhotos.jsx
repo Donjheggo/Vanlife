@@ -1,9 +1,10 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 
 
 const Photos = () => {
 
+  const {van} = useOutletContext()
 
   return (
     <div>

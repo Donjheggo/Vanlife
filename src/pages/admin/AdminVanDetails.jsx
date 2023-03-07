@@ -40,7 +40,7 @@ const AdminVanLayout = () => {
           <NavLink to="pricing" className={({isActive}) => isActive ? 'active-link' : ""}>Pricing</NavLink>
           <NavLink to="photos" className={({isActive}) => isActive ? 'active-link' : ""}>Photos</NavLink>
         </nav>
-        <Outlet value={{van}}/>
+        <Outlet context={{van}}/>
       </div>
     </div>
   )

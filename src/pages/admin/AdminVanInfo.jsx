@@ -1,8 +1,9 @@
 import React from 'react'
-import { useParams, useOutletContext } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 
 const AdminVanDetails = () => {
   
+  const {van} = useOutletContext()
 
   return (
     <div className='admin-vanroute-details'>
