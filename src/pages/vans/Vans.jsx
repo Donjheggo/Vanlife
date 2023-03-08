@@ -1,40 +1,24 @@
 import React from 'react';
 import Van from '../../components/Van'
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 
 const Vans = () => {
 
-  const [vans, setVans] = React.useState([])
 
-  React.useEffect( () => {
+  const [vans, setVans] = React.useState([])
+  
+    React.useEffect( () => {
     fetch("/api/vans")
       .then(res => res.json())
-      .then(data => {
-        const van = data.vans.map(van => ({
-          id: van.id,
-          image: van.image,
-          name: van.name,
-          type: van.type,
-          description: van.description,
-          price: van.price,
-          isFiltered: false
-        }))
-        setVans(van)
-      })
+      .then(data => setVans(data.vans))
   },[])
 
-  const filter = (type) => {
-    setVans(prev => prev.map(van => {
-      return van.type === type ? {...van, isFiltered: false} : {...van, isFiltered: true} 
-    }))
-  };
+  const [searchParams, setSearchParams] = useSearchParams()
 
-  const clearFilter = () => {
-    setVans(prev => prev.map(van => ({...van, isFiltered: false})))
-  }
+  const filterType = searchParams.get("type")
 
-  const filteredVans = vans.filter(van => !van.isFiltered)
+  const filteredVans = filterType ? vans.filter(van => van.type === filterType) : vans
 
   const elements = filteredVans.map(item => (
     <div key={item.id}>
@@ -51,15 +35,20 @@ const Vans = () => {
     </div>
     ) 
   )
+
+ const simpleColor = filterType === 'Simple' ? "selected" : ""
+ const luxuryColor = filterType === 'Luxury' ? "selected" : ""
+ const ruggedColor = filterType === 'Rugged' ? "selected" : ""
+
  
   return (
-    <div className='vans container'> 
-      <p className='vans-title'>Explore our van options</p>
-      <div className='row'>
-        <button onClick={() => filter('Simple')} className='filter-btn col'>Simple</button>
-        <button onClick={() => filter('Luxury')} className='filter-btn col'>Luxury</button>
-        <button onClick={() => filter('Rugged')} className='filter-btn col'>Rugged</button>
-        <button onClick={clearFilter} className='clearfilter-btn col'>Clear filters</button>
+    <div className='vans container'>    
+        <p className='vans-title'>Explore our van options</p>
+       <div className='row'>                                   
+        <button onClick={() => setSearchParams({type: 'Simple'})} className={`filter-btn simple col ${simpleColor}`}>Simple</button>
+        <button onClick={() => setSearchParams({type: 'Luxury'})} className={`filter-btn luxury col ${luxuryColor}`}>Luxury</button>
+        <button onClick={() => setSearchParams({type: 'Rugged'})} className={`filter-btn rugged col ${ruggedColor}`}>Rugged</button>
+        {filterType && <button onClick={() => setSearchParams({})} className='clearfilter-btn col'>Clear filters</button>}
       </div>
       <div className='row-van vans-imgs'>
         {elements}

@@ -123,6 +123,23 @@ footer {
     font-size: 16px;
 }
 
+.simple:hover, .filter-btn.simple.selected {
+    background-color: #E17654;
+    color: white;
+}
+
+.luxury:hover, .filter-btn.luxury.selected{
+    background-color: #161616;
+    color: white;
+}
+
+.rugged:hover, .filter-btn.rugged.selected{
+    background-color: #115E59;
+    color: white;
+}
+
+
+
 .clearfilter-btn{
     width: 104px;
     height: 37px;
@@ -494,3 +511,14 @@ footer {
     background-color: white;
 }
 
+.simple-btn-color{
+    background-color: #E17654;
+}
+
+.luxury-btn-color{
+    background-color: #161616;
+}
+
+.rugged-btn-color{
+    background-color: #115E59;
+}
