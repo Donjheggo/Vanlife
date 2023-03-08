@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import MainLayout from './components/MainLayout'
 import AdminLayout from './components/admin/AdminLayout'
+import NotFound from './components/NotFound'
 
 import About from './pages/About'
 import Vans from './pages/vans/Vans'
@@ -47,7 +48,7 @@ const App = () => {
                 </Route>
 
               </Route>
-
+              <Route path="*" element={<NotFound/>}/>
             </Route>
 
           </Routes>

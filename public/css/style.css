@@ -451,6 +451,12 @@ footer {
     margin-top: 40px;
 }
 
+.mt-5{
+    margin-top: 50px;
+}
+
+
+
 .f-w-normal{
     font-weight: normal;
 }
@@ -503,6 +509,14 @@ footer {
     margin-bottom: 50px;
 }
 
+.mb-10{
+    margin-bottom: 100px;
+}
+
+.mt-10{
+    margin-top: 100px;
+}
+
 .mt-2{
     margin-top: 20px;
 }
@@ -521,4 +535,20 @@ footer {
 
 .rugged-btn-color{
     background-color: #115E59;
+}
+
+.error-text{
+    font-weight: 700;
+    font-size: 32px;
+    color: #161616;
+}
+
+.return-home-btn{
+    padding: 1rem 11rem 1rem 11rem ;
+    background-color: #161616;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 5px;
 }
