@@ -2,7 +2,7 @@
 
 const getVans = async () => {
   const res = await fetch("/api/vans")
-    if (!res.ok) {
+  if (!res.ok) {
       throw {
           message: "Failed to fetch vans", 
           statusText: res.statusText,
