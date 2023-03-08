@@ -1,18 +1,31 @@
 import React from 'react';
 import Van from '../../components/Van'
 import { Link, useSearchParams } from 'react-router-dom';
+import getVans from "../../api/api"
 
 
 const Vans = () => {
 
-
   const [vans, setVans] = React.useState([])
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState(null)
   
     React.useEffect( () => {
-    fetch("/api/vans")
-      .then(res => res.json())
-      .then(data => setVans(data.vans))
+      const getVansAPI = async () => {
+        setLoading(true)
+        try{
+          const data = await getVans()
+          setVans(data)
+        }catch(err){
+          console.log(err)
+          setError(err)
+        }finally{
+          setLoading(false)
+        }
+      }
+      getVansAPI()
   },[])
+
 
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -47,6 +60,15 @@ const Vans = () => {
  const simpleColor = filterType === 'Simple' ? "selected" : ""
  const luxuryColor = filterType === 'Luxury' ? "selected" : ""
  const ruggedColor = filterType === 'Rugged' ? "selected" : ""
+
+
+ if(loading){
+  return <div className='container'> <h1> Loading...</h1> </div>
+ }
+
+ if(error){
+  return <div className='container'> <h1> Error: {error.message}</h1></div>
+ }
 
  
   return (

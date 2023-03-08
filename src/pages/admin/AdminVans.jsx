@@ -1,15 +1,18 @@
 import React from 'react'
 import AdminVan from '../../components/admin/AdminVan'
 import { Link } from 'react-router-dom'
+import getVans from "../../api/api"
 
 const AdminVans = () => {
 
   const [vans, setVans] = React.useState([])
 
   React.useEffect( () => {
-      fetch("/api/vans")
-        .then(res => res.json())
-        .then(data => setVans(data.vans))
+      const getVansAPI = async() => {
+        const data = await getVans()
+        setVans(data)
+      }
+      getVansAPI()
   }, [])
 
   const elements = vans.map(van => (
