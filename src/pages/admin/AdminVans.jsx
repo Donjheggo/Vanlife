@@ -14,7 +14,7 @@ const AdminVans = () => {
 
   const elements = vans.map(van => (
   <div key={van.id}>
-    <Link to={`/admin/vans/${van.id}`}>
+    <Link to={van.id}>
       <AdminVan
         name={van.name}
         price={van.price}

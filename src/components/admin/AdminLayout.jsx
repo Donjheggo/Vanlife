@@ -6,7 +6,7 @@ const AdminLayout = () => {
     <div>
         <nav className='admin-links'>
             <NavLink 
-              to="/admin" 
+              to="." 
               end
               className={({isActive}) => isActive ? "active-link" : ""}>
               Dashboard

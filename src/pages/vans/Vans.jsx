@@ -22,7 +22,15 @@ const Vans = () => {
 
   const elements = filteredVans.map(item => (
     <div key={item.id}>
-      <Link to={`/vans/${item.id}`}>
+      <Link 
+      to={item.id} 
+      state={
+        {
+          search: searchParams.toString(),
+          type: filterType
+        }
+      }
+      >
         <Van 
           key={item.id}
           name={item.name}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import backimg from '/images/backicon.svg'
 
 const VanDetails = () => {
@@ -16,10 +16,16 @@ const VanDetails = () => {
         backgroundColor: van.type === 'Simple' ? '#E17654' : van.type === 'Rugged' ? '#115E59' : '#161616'
     }
 
+    const location = useLocation()
+
+    const urlParams = location ? location.state.search : null
+
+    const vanType = location.state.type || "all"
+
     return (
         <div className='van-details container'>
             <div>
-                <Link to="/vans"> <img src={backimg} /> Back to all vans</Link>
+                <Link to={`../?${urlParams}`} relative="path"> <img src={backimg} /> Back to {vanType} vans</Link>
             </div>
             <img src={van.image} alt="van-img" className='van-img' />
             <div>
