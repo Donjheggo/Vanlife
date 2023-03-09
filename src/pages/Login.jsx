@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault()
     setStatus("submitting")
     loginUser(formData)
-      .then(data => console.log(data))
+      .then(data => {console.log(data), setError(null)})
       .catch(error => {setError(error.message)})
       .finally(() => {setStatus("idle")})
   }
