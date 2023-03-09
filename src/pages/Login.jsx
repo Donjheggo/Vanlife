@@ -25,22 +25,23 @@ const Login = () => {
       setError(null)
     }catch(error){
       setError(error)
+      setStatus("idle")
     }
   }
 
-  const errorMsg = error?.message ? error.message : null
   const btnStatus = status === "submitting" ? true : false
+  const btnTextStatus = status === "idle" ? "Sign in" : "Signing in..."
   const location = useLocation()
 
   return (
     <div className='container'>
-        {error && <p className='text-center text-warning'>{errorMsg}</p>}
+        {error && <p className='text-center text-warning'>{error?.message }</p>}
         {location.state && <p className='text-center text-warning'>{location.state.message}</p>}
         <p className='signin-text text-center'>Sign in to your account</p>
         <form onSubmit={handleSubmit}>
             <input onChange={handleForm} name="email" type="email" value={formData.username} className='username-input' placeholder='Email address'/>
             <input onChange={handleForm} name="password" type="password" value={formData.password} className='password-input' placeholder='Password'/>
-            <button className='signin-btn' disabled={btnStatus}>Sign in</button>
+            <button className='signin-btn' disabled={btnStatus}>{btnTextStatus}</button>
         </form>
         <div className='register-sec'>
             <p className='text-center'>Doesn't have an account? <Link className='signup-link'>Create one now</Link></p>
