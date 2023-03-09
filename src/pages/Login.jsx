@@ -23,11 +23,11 @@ const Login = () => {
       .then(data => {
         console.log(data)
         setError(null)
-        setLocation("")
+        setLocation(null)
         })
       .catch(error => {
         setError(error.message) 
-        setLocation("")
+        setLocation(null)
         })
       .finally(() => {
         setStatus("idle")
@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <div className='container'>
         {error && <p className='text-center text-warning'>{error}</p>}
-        {location.state?.message && <p className='text-center text-warning'>{location.state.message}</p>}
+        {location?.state?.message && <p className='text-center text-warning'>{location.state.message}</p>}
         <p className='signin-text text-center'>Sign in to your account</p>
         <form onSubmit={handleSubmit}>
             <input onChange={handleForm} name="email" type="email" value={formData.username} className='username-input' placeholder='Email address'/>
