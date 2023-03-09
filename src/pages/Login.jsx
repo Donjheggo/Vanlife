@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { loginUser } from '../api/api'
 
 const Login = () => {
@@ -15,13 +15,14 @@ const Login = () => {
     const {name, value} = e.target
     setFormData(prev => ({...prev, [name]: value}))
   }
-
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
     setStatus("submitting")
     loginUser(formData)
       .then(data => {
         console.log(data)
+        navigate("/admin/vans")
         setError(null)
         setLocation(null)
         })
