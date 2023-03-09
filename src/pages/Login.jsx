@@ -15,18 +15,13 @@ const Login = () => {
     setFormData(prev => ({...prev, [name]: value}))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setStatus("submitting")
-    try{
-      const data = await loginUser(formData)
-      console.log(data)
-      setStatus("idle")
-      setError(null)
-    }catch(error){
-      setError(error)
-      setStatus("idle")
-    }
+    loginUser(formData)
+      .then(data => console.log(data))
+      .catch(error => {setError(error.message)})
+      .finally(() => {setStatus("idle")})
   }
 
   const btnStatus = status === "submitting" ? true : false
@@ -35,7 +30,7 @@ const Login = () => {
 
   return (
     <div className='container'>
-        {error && <p className='text-center text-warning'>{error?.message }</p>}
+        {error && <p className='text-center text-warning'>{error}</p>}
         {location.state && <p className='text-center text-warning'>{location.state.message}</p>}
         <p className='signin-text text-center'>Sign in to your account</p>
         <form onSubmit={handleSubmit}>
