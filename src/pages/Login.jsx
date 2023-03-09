@@ -9,6 +9,7 @@ const Login = () => {
   })
   const [status, setStatus] = React.useState('idle')
   const [error, setError] = React.useState(null)
+  const [location, setLocation] = React.useState(useLocation())
 
   const handleForm = (e) => {
     const {name, value} = e.target
@@ -19,19 +20,28 @@ const Login = () => {
     e.preventDefault()
     setStatus("submitting")
     loginUser(formData)
-      .then(data => {console.log(data), setError(null)})
-      .catch(error => {setError(error.message)})
-      .finally(() => {setStatus("idle")})
+      .then(data => {
+        console.log(data)
+        setError(null)
+        setLocation("")
+        })
+      .catch(error => {
+        setError(error.message) 
+        setLocation("")
+        })
+      .finally(() => {
+        setStatus("idle")
+        })
   }
 
   const btnStatus = status === "submitting" ? true : false
   const btnTextStatus = status === "idle" ? "Sign in" : "Signing in..."
-  const location = useLocation()
+
 
   return (
     <div className='container'>
         {error && <p className='text-center text-warning'>{error}</p>}
-        {location.state && <p className='text-center text-warning'>{location.state.message}</p>}
+        {location.state?.message && <p className='text-center text-warning'>{location.state.message}</p>}
         <p className='signin-text text-center'>Sign in to your account</p>
         <form onSubmit={handleSubmit}>
             <input onChange={handleForm} name="email" type="email" value={formData.username} className='username-input' placeholder='Email address'/>
