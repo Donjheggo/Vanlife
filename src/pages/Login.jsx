@@ -35,7 +35,7 @@ const Login = () => {
   }
 
   const btnStatus = status === "submitting" ? true : false
-  const btnTextStatus = status === "idle" ? "Sign in" : "Signing in..."
+  const btnText = status === "idle" ? "Sign in" : "Signing in..."
 
 
   return (
@@ -46,7 +46,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
             <input onChange={handleForm} name="email" type="email" value={formData.username} className='username-input' placeholder='Email address'/>
             <input onChange={handleForm} name="password" type="password" value={formData.password} className='password-input' placeholder='Password'/>
-            <button className='signin-btn' disabled={btnStatus}>{btnTextStatus}</button>
+            <button className='signin-btn' disabled={btnStatus}>{btnText}</button>
         </form>
         <div className='register-sec'>
             <p className='text-center'>Doesn't have an account? <Link className='signup-link'>Create one now</Link></p>
