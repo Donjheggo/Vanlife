@@ -1,12 +1,12 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
 
 import MainLayout from './components/MainLayout'
 import AdminLayout from './components/admin/AdminLayout'
 import NotFound from './components/NotFound'
 
 import About from './pages/About'
-import Vans from './pages/vans/Vans'
+import Vans, { vansLoader } from './pages/vans/Vans'
 import Home from './pages/Home'
 import VanDetails from './pages/vans/VanDetails'
 
@@ -22,37 +22,36 @@ import AdminVanPhotos from './pages/admin/AdminVanPhotos'
 
 import './server/server'
 
+
+const router = createBrowserRouter(createRoutesFromElements(
+      <Route path="/" element={<MainLayout/>}>
+                    
+        <Route index element={<Home/>}/>
+        <Route path="about" element={<About/>}/>
+        <Route path="vans" element={<Vans />} errorElement={<NotFound/>} loader={vansLoader}/>
+        <Route path="vans/:id" element={<VanDetails />}/>
+
+        <Route path="admin" element={<AdminLayout/>}>
+          <Route index element={<Dashboard/>}/>
+          <Route path="income" element={<Income/>} />
+          <Route path="vans" element={<AdminVans/>}/>
+          <Route path="reviews" element={<Reviews/>}/>
+
+          <Route path="vans/:id" element={<AdminVanDetails/>} >
+            <Route index element={<AdminVanInfo/>}/>
+            <Route path="pricing" element={<AdminVanPricing/>}/>
+            <Route path="photos" element={<AdminVanPhotos/>}/>
+          </Route>
+
+        </Route>
+        <Route path="*" element={<NotFound/>}/>
+      </Route>
+))
+
 const App = () => {
   return (
     <div className='main'>
-      <BrowserRouter>
-          <Routes>
-
-            <Route path="/" element={<MainLayout/>}>
-              
-              <Route index element={<Home/>}/>
-              <Route path="about" element={<About/>}/>
-              <Route path="vans" element={<Vans />}/>
-              <Route path="vans/:id" element={<VanDetails />}/>
-    
-              <Route path="admin" element={<AdminLayout/>}>
-                <Route index element={<Dashboard/>}/>
-                <Route path="income" element={<Income/>} />
-                <Route path="vans" element={<AdminVans/>}/>
-                <Route path="reviews" element={<Reviews/>}/>
-
-                <Route path="vans/:id" element={<AdminVanDetails/>} >
-                  <Route index element={<AdminVanInfo/>}/>
-                  <Route path="pricing" element={<AdminVanPricing/>}/>
-                  <Route path="photos" element={<AdminVanPhotos/>}/>
-                </Route>
-
-              </Route>
-              <Route path="*" element={<NotFound/>}/>
-            </Route>
-
-          </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router}/>
     </div>
   )
 }
