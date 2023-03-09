@@ -4,6 +4,7 @@ import { createServer, Model, Response } from "miragejs";
 createServer({
     models: {
         vans: Model,
+        users: Model
     },
 
     seeds(server){
@@ -60,6 +61,15 @@ createServer({
             type: 'Rugged',
             image: '/images/vans/6.jpg'
         });
+        server.create("user", 
+        {
+            id: 123,
+            email: "christianjheggfer@gmail.com",
+            password: "password123",
+            firstName: "Christian Jhegg",
+            lastName: "Fermilan"
+        }
+        )
     },
 
     routes() {
@@ -73,6 +83,19 @@ createServer({
         this.get("/vans/:id", (schema, request) => {
             const id = request.params.id
             return schema.vans.find(id)
+        })
+        this.post("/login", (schema, request) => {
+            const { email, password } = JSON.parse(request.requestBody)
+            const foundUser = schema.users.findBy({ email, password })
+            if (!foundUser) {
+                return new Response(401, {}, { message: "No user with those credentials found!" })
+            }
+
+            foundUser.password = undefined
+            return {
+                user: foundUser,
+                token: "SampleToken123"
+            }
         })
     }
     

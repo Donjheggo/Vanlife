@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink } from 'react-router-dom'
+import signinImg from "/images/signin.svg"
 
 
 const Header = () => {
@@ -29,6 +30,11 @@ const Header = () => {
               to="/vans" 
               className={({isActive}) => isActive ? "vans-link active-link" : "vans-link "}>
               Vans
+            </NavLink>
+            <NavLink 
+              to="/login" 
+              className={({isActive}) => isActive ? "vans-link active-link" : "signin-link "}>
+              <img src={signinImg} className="signin-logo"/>
             </NavLink>
           </div>
        

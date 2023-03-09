@@ -4,7 +4,9 @@ import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} fr
 import MainLayout from './components/MainLayout'
 import AdminLayout from './components/admin/AdminLayout'
 import NotFound from './components/NotFound'
+import AuthRequired from './components/AuthRequired'
 
+import Login from './pages/Login'
 import About from './pages/About'
 import Vans, { vansLoader } from './pages/vans/Vans'
 import Home from './pages/Home'
@@ -27,23 +29,26 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<MainLayout/>}>
                     
         <Route index element={<Home/>}/>
+        <Route path="login" element={<Login/>}/>
         <Route path="about" element={<About/>}/>
         <Route path="vans" element={<Vans />} errorElement={<NotFound/>} loader={vansLoader}/>
         <Route path="vans/:id" element={<VanDetails />}/>
 
-        <Route path="admin" element={<AdminLayout/>}>
-          <Route index element={<Dashboard/>}/>
-          <Route path="income" element={<Income/>} />
-          <Route path="vans" element={<AdminVans/>}/>
-          <Route path="reviews" element={<Reviews/>}/>
+        <Route element={<AuthRequired/>}>
+          <Route path="admin" element={<AdminLayout/>}>
+            <Route index element={<Dashboard/>}/>
+            <Route path="income" element={<Income/>} />
+            <Route path="vans" element={<AdminVans/>}/>
+            <Route path="reviews" element={<Reviews/>}/>
 
-          <Route path="vans/:id" element={<AdminVanDetails/>} >
-            <Route index element={<AdminVanInfo/>}/>
-            <Route path="pricing" element={<AdminVanPricing/>}/>
-            <Route path="photos" element={<AdminVanPhotos/>}/>
+            <Route path="vans/:id" element={<AdminVanDetails/>} >
+              <Route index element={<AdminVanInfo/>}/>
+              <Route path="pricing" element={<AdminVanPricing/>}/>
+              <Route path="photos" element={<AdminVanPhotos/>}/>
+            </Route>
           </Route>
-
         </Route>
+
         <Route path="*" element={<NotFound/>}/>
       </Route>
 ))
