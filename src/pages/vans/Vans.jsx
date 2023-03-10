@@ -1,33 +1,36 @@
 import React from 'react';
 import Van from '../../components/Van'
-import { Link, useSearchParams, useLoaderData } from 'react-router-dom';
+import { Link, useSearchParams, useLoaderData, defer, Await } from 'react-router-dom';
 import getVans from "../../api/api"
 
-
 export const vansLoader = () => {
-  return getVans()
+  return defer({vans: getVans()})
 }
 
 const Vans = () => {
 
-  const vans = useLoaderData()
-  
   const [searchParams, setSearchParams] = useSearchParams()
-
   const filterType = searchParams.get("type")
+  const vansLoader = useLoaderData()
+  
+  const simpleColor = filterType === 'Simple' ? "selected" : ""
+  const luxuryColor = filterType === 'Luxury' ? "selected" : ""
+  const ruggedColor = filterType === 'Rugged' ? "selected" : ""
 
-  const filteredVans = filterType ? vans.filter(van => van.type === filterType) : vans
+  const renderVansElements = (loadedVans) => {
+            
+  const filteredVans = filterType ? loadedVans.filter(van => van.type === filterType) : loadedVans
 
   const elements = filteredVans.map(item => (
     <div key={item.id}>
       <Link 
-      to={item.id} 
-      state={
-        {
-          search: searchParams.toString(),
-          type: filterType
+        to={item.id} 
+        state={
+          {
+            search: searchParams.toString(),
+            type: filterType
+          }
         }
-      }
       >
         <Van 
           key={item.id}
@@ -42,11 +45,13 @@ const Vans = () => {
     ) 
   )
 
- const simpleColor = filterType === 'Simple' ? "selected" : ""
- const luxuryColor = filterType === 'Luxury' ? "selected" : ""
- const ruggedColor = filterType === 'Rugged' ? "selected" : ""
+  return (
+    <>
+    {elements}
+    </>
+  )
+}
 
- 
   return (
     <div className='vans container'>    
         <p className='vans-title'>Explore our van options</p>
@@ -57,7 +62,11 @@ const Vans = () => {
         {filterType && <button onClick={() => setSearchParams({})} className='clearfilter-btn col'>Clear filters</button>}
       </div>
       <div className='row-van vans-imgs'>
-        {elements}
+        <React.Suspense fallback={<h1>Loading vans...</h1>}>
+          <Await resolve={vansLoader.vans}>
+            {renderVansElements}
+          </Await>
+        </React.Suspense>
       </div>
     </div>
   )

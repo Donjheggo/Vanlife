@@ -1,59 +1,52 @@
 import React from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigation, useActionData, Form, useNavigate } from 'react-router-dom'
 import { loginUser } from '../api/api'
 
-const Login = () => {
-  const [formData, setFormData] = React.useState({
-    email: "",
-    password: ""
-  })
-  const [status, setStatus] = React.useState('idle')
-  const [error, setError] = React.useState(null)
-  const [location, setLocation] = React.useState(useLocation())
+export const loginAction = async ({ request }) => {
+  const formData = await request.formData()
+  const email = formData.get("email")
+  const password = formData.get("password")
 
-  const handleForm = (e) => {
-    const {name, value} = e.target
-    setFormData(prev => ({...prev, [name]: value}))
+  try{
+    const login = await loginUser({email, password})
+    localStorage.setItem("loggedin", true)
+    return login
+  }catch(err){
+    return {
+      error: err.message
+    }
   }
+
+}
+
+const Login = () => {
+
+  const location = useLocation()
+  const data = useActionData()
   const navigate = useNavigate()
+  const navigation = useNavigation()
+
+  const btnStatus = navigation.state === "submitting" ? true : false
+  const btnText = navigation.state === "idle" ? "Sign in" : "Signing in..."
   const urlParams = location?.state ? location.state.from : "/admin"
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setStatus("submitting")
-    loginUser(formData)
-      .then(data => {
-        localStorage.setItem("loggedin", true)
-        navigate({urlParams}, {replace: true})
-        setError(null)
-        setLocation(null)
-        })
-      .catch(error => {
-        setError(error.message) 
-        setLocation(null)
-        })
-      .finally(() => {
-        setStatus("idle")
-        })
+  if(data?.token){
+    navigate(urlParams, {replace: true})
   }
-
-  const btnStatus = status === "submitting" ? true : false
-  const btnText = status === "idle" ? "Sign in" : "Signing in..."
-
-
+ 
   return (
     <div className='container'>
-        {error && <p className='text-center text-warning'>{error}</p>}
-        {location?.state?.message && <p className='text-center text-warning'>{location.state.message}</p>}
-        <p className='signin-text text-center'>Sign in to your account</p>
-        <form onSubmit={handleSubmit}>
-            <input onChange={handleForm} name="email" type="email" value={formData.username} className='username-input' placeholder='Email address'/>
-            <input onChange={handleForm} name="password" type="password" value={formData.password} className='password-input' placeholder='Password'/>
-            <button className='signin-btn' disabled={btnStatus}>{btnText}</button>
-        </form>
-        <div className='register-sec'>
-            <p className='text-center'>Doesn't have an account? <Link className='signup-link'>Create one now</Link></p>
-        </div>
+      <p className='signin-text text-center'>Sign in to your account</p>
+      {location?.state?.message && !data?.error && <p className='text-center text-warning'>{location.state.message}</p>}
+      {data?.error && <p className='text-center text-warning'>{data.error}</p>}
+      <Form action="/login" method="POST">
+          <input name="email" type="email" className='username-input' placeholder='Email address'/>
+          <input name="password" type="password" className='password-input' placeholder='Password'/>
+          <button className='signin-btn' disabled={btnStatus}>{btnText}</button>
+      </Form>
+      <div className='register-sec'>
+          <p className='text-center'>Doesn't have an account? <Link className='signup-link'>Create one now</Link></p>
+      </div>
     </div>
   )
 }

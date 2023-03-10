@@ -11,7 +11,10 @@ const AuthRequired = () => {
       <Navigate 
         to="/login" 
         replace
-        state={{message: 'You need to login first!', from: location.pathname}} 
+        state={{
+          message: 'You need to login first!', 
+          from: location.pathname
+        }} 
         />
     )
   }

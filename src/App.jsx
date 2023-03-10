@@ -6,7 +6,7 @@ import AdminLayout from './components/admin/AdminLayout'
 import NotFound from './components/NotFound'
 import AuthRequired from './components/AuthRequired'
 
-import Login from './pages/Login'
+import Login, {loginAction} from './pages/Login'
 import About from './pages/About'
 import Vans, { vansLoader } from './pages/vans/Vans'
 import Home from './pages/Home'
@@ -28,7 +28,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<MainLayout/>}>
                     
         <Route index element={<Home/>}/>
-        <Route path="login" element={<Login/>}/>
+        <Route path="login" element={<Login/>} action={loginAction}/>
         <Route path="about" element={<About/>}/>
         <Route path="vans" element={<Vans />} errorElement={<NotFound/>} loader={vansLoader}/>
         <Route path="vans/:id" element={<VanDetails />}/>
