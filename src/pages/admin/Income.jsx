@@ -2,7 +2,9 @@ import React from 'react'
 
 const Income = () => {
   return (
-    <div>Income view</div>
+    <div className='container'>
+      <h1>Income</h1>
+    </div>
   )
 }
 

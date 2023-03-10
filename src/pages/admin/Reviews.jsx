@@ -2,7 +2,9 @@ import React from 'react'
 
 const Reviews = () => {
   return (
-    <div>Reviews view</div>
+    <div className='container'>
+      <h1>Reviews</h1>
+    </div>
   )
 }
 

@@ -13,7 +13,7 @@ import Home from './pages/Home'
 import VanDetails from './pages/vans/VanDetails'
 
 import Dashboard from './pages/admin/Dashboard'
-import AdminVans from "./pages/admin/AdminVans"
+import AdminVans, {vansAdminLoader} from "./pages/admin/AdminVans"
 import Reviews from "./pages/admin/Reviews"
 import Income from "./pages/admin/Income"
 
@@ -37,7 +37,7 @@ const router = createBrowserRouter(createRoutesFromElements(
           <Route path="admin" element={<AdminLayout/>}>
             <Route index element={<Dashboard/>}/>
             <Route path="income" element={<Income/>} />
-            <Route path="vans" element={<AdminVans/>}/>
+            <Route path="vans" element={<AdminVans/>} loader={vansAdminLoader}/>
             <Route path="reviews" element={<Reviews/>}/>
 
             <Route path="vans/:id" element={<AdminVanDetails/>} >
