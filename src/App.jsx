@@ -10,7 +10,7 @@ import Login, {loginAction} from './pages/Login'
 import About from './pages/About'
 import Vans, { vansLoader } from './pages/vans/Vans'
 import Home from './pages/Home'
-import VanDetails from './pages/vans/VanDetails'
+import VanDetails, {vanDetailLoader} from './pages/vans/VanDetails'
 
 import Dashboard from './pages/admin/Dashboard'
 import AdminVans, {vansAdminLoader} from "./pages/admin/AdminVans"
@@ -31,7 +31,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="login" element={<Login/>} action={loginAction}/>
         <Route path="about" element={<About/>}/>
         <Route path="vans" element={<Vans />} errorElement={<NotFound/>} loader={vansLoader}/>
-        <Route path="vans/:id" element={<VanDetails />}/>
+        <Route path="vans/:id" element={<VanDetails />} loader={vanDetailLoader}/>
 
         <Route element={<AuthRequired/>}>
           <Route path="admin" element={<AdminLayout/>}>
