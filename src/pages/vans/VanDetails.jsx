@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link, useLocation, defer, Await, useLoaderData } from 'react-router-dom'
 import backimg from '/images/backicon.svg'
-import getVans from "../../api/api"
-
+import {getVanDetail} from "../../api/api"
 
 export const vanDetailLoader = ({params}) => {
-    return defer({vans: getVans(params)})
+    return defer({vans: getVanDetail(params.id)})
 
 }
 
@@ -17,9 +16,6 @@ const VanDetails = () => {
     const vanType = location.state.type || "all"
 
     const renderVanDetails = (van) => {
-        // const params = location.pathname.split("/")[2]
-        // const van = vann[params]
-        // console.log(first)
         const btnColor = {
             backgroundColor: (() => {
               switch (van.type) {
