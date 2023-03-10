@@ -37,10 +37,10 @@ const Header = () => {
             </NavLink>
             <NavLink 
               to="/login" 
-              className={({isActive}) => isActive ? "vans-link active-link" : "signin-link "}>
+              className={({isActive}) => isActive ? "login-link active-link" : "login-link "}>
               <img src={signinImg} className="signin-logo"/>
             </NavLink>
-            <NavLink onClick={fakeLogout}>
+            <NavLink onClick={fakeLogout} className="logout-link">
               Logout
             </NavLink>
           </div>

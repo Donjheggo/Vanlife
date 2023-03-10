@@ -65,7 +65,7 @@ a:hover {
     color: #4D4D4D !important;
 }
 
-.about-link, .admin-link, .vans-link{
+.about-link, .admin-link, .vans-link, .login-link, .logout-link{
     padding-right: 1rem;
 }
 
@@ -633,3 +633,4 @@ footer {
 .text-warning{
     color: red;
 }
+

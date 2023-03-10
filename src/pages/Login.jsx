@@ -16,13 +16,14 @@ const Login = () => {
     setFormData(prev => ({...prev, [name]: value}))
   }
   const navigate = useNavigate()
+  const urlParams = location?.state ? location.state.from : "/admin"
   const handleSubmit = (e) => {
     e.preventDefault()
     setStatus("submitting")
     loginUser(formData)
       .then(data => {
         localStorage.setItem("loggedin", true)
-        navigate("/admin", {replace: true})
+        navigate(`${urlParams}`, {replace: true})
         setError(null)
         setLocation(null)
         })
