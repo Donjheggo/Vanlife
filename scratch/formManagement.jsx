@@ -3,13 +3,13 @@ import React from "react"
 export default function Form() {
     const [formData, setFormData] = React.useState(
         {
-            firstName: "Bob", 
-            lastName: "Z", 
-            email: "b@b.com", 
-            comments: "Blahblahblah", 
+            firstName: "Christian Jhegg", 
+            lastName: "Fermilan", 
+            email: "christianjheggfer@gmail.com", 
+            comments: "Test comment", 
             isFriendly: true,
             employment: "full-time",
-            favColor: "blue"
+            favColor: "gray"
         }
     )
     
