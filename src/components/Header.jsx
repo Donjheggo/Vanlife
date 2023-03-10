@@ -5,6 +5,10 @@ import signinImg from "/images/signin.svg"
 
 const Header = () => {
 
+  const fakeLogout = () => {
+    localStorage.clear()
+  }
+
   return (
       <header>
         
@@ -35,6 +39,9 @@ const Header = () => {
               to="/login" 
               className={({isActive}) => isActive ? "vans-link active-link" : "signin-link "}>
               <img src={signinImg} className="signin-logo"/>
+            </NavLink>
+            <NavLink onClick={fakeLogout}>
+              Logout
             </NavLink>
           </div>
        

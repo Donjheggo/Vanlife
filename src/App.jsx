@@ -24,7 +24,6 @@ import AdminVanPhotos from './pages/admin/AdminVanPhotos'
 
 import './server/server'
 
-
 const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<MainLayout/>}>
                     

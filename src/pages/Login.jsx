@@ -21,8 +21,8 @@ const Login = () => {
     setStatus("submitting")
     loginUser(formData)
       .then(data => {
-        console.log(data)
-        navigate("/admin/vans")
+        localStorage.setItem("loggedin", true)
+        navigate("/admin", {replace: true})
         setError(null)
         setLocation(null)
         })
