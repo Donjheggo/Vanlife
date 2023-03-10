@@ -5,7 +5,6 @@ const AuthRequired = () => {
   
   const isLoggedIn = localStorage.getItem("loggedin")
   const location = useLocation()
-  const urlParams = location ? location.pathname : null
 
   if(!isLoggedIn){
     return (
