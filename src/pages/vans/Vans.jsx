@@ -9,7 +9,6 @@ export const vansLoader = () => {
 }
 
 const Vans = () => {
-
   const [searchParams, setSearchParams] = useSearchParams()
   const filterType = searchParams.get("type")
   const vansLoader = useLoaderData()

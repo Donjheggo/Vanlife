@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, useLocation, defer, Await, useLoaderData } from 'react-router-dom'
 import backimg from '/images/backicon.svg'
-import {getVanDetail} from "../../api/api"
+// import {getVanDetail} from "../../api/api"
+import { getVanDetail } from '../../api/firebase'
 
 export const vanDetailLoader = ({params}) => {
     return defer({vans: getVanDetail(params.id)})

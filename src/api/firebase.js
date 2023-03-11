@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite"
+import { getFirestore, collection, doc, getDocs, getDoc,  } from "firebase/firestore/lite"
 
 
 const firebaseConfig = {
@@ -20,19 +20,24 @@ const vansCollectionRef = collection(db, "vans")
 const userCollectionRef = collection(db, "users")
 
 export const getVans = async() => {
+
   const querySnapShot = await getDocs(vansCollectionRef);
   const dataArr = querySnapShot.docs.map(doc => ({
     ...doc.data(),
     id: doc.id
   }))
-  console.log(dataArr)
   return dataArr
 }
 
 
 export const getVanDetail = async(id) => {
+  const docRef = doc(db, "vans", id)
 
+  const vanSnapshot = await getDoc(docRef);
+  const data = {...vanSnapshot.data(), id: vanSnapshot.id}
+  return data
 }
+
 
 export const getAdminVans = async() => {
 
