@@ -31,16 +31,16 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="login" element={<Login/>} action={loginAction}/>
         <Route path="about" element={<About/>}/>
         <Route path="vans" element={<Vans />} errorElement={<NotFound/>} loader={vansLoader}/>
-        <Route path="vans/:id" element={<VanDetails />} loader={vanDetailLoader}/>
+        <Route path="vans/:id" element={<VanDetails />} errorElement={<h1>There was an error from the server</h1>} loader={vanDetailLoader}/>
 
         <Route element={<AuthRequired/>}>
           <Route path="admin" element={<AdminLayout/>}>
             <Route index element={<Dashboard/>}/>
             <Route path="income" element={<Income/>} />
-            <Route path="vans" element={<AdminVans/>} loader={vansAdminLoader}/>
+            <Route path="vans" element={<AdminVans/>} errorElement={<h1>There was an error from the server</h1>} loader={vansAdminLoader}/>
             <Route path="reviews" element={<Reviews/>}/>
 
-            <Route path="vans/:id" element={<AdminVanDetails/>} >
+            <Route path="vans/:id" element={<AdminVanDetails/>} errorElement={<h1>There was an error from the server</h1>}>
               <Route index element={<AdminVanInfo/>}/>
               <Route path="pricing" element={<AdminVanPricing/>}/>
               <Route path="photos" element={<AdminVanPhotos/>}/>

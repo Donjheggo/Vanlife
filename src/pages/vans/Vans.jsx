@@ -1,7 +1,8 @@
 import React from 'react';
 import Van from '../../components/Van'
 import { Link, useSearchParams, useLoaderData, defer, Await } from 'react-router-dom';
-import getVans from "../../api/api"
+// import getVans from "../../api/api"
+import { getVans } from '../../api/firebase';
 
 export const vansLoader = () => {
   return defer({vans: getVans()})

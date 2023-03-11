@@ -30,10 +30,13 @@ const Login = () => {
   const btnText = navigation.state === "idle" ? "Sign in" : "Signing in..."
   const urlParams = location?.state ? location.state.from : "/admin"
 
-  if(data?.token){
-    navigate(urlParams, {replace: true})
-  }
- 
+  React.useEffect( () => {
+    if(data?.token){
+      navigate(urlParams, {replace: true})
+    }
+  }, [data])
+
+
   return (
     <div className='container'>
       <p className='signin-text text-center'>Sign in to your account</p>
