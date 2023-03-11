@@ -7,9 +7,9 @@ const Pricing = () => {
 
   return (
     <div>
-      <p className='admin-vanroute-price'>
+      <p className='host-vanroute-price'>
         ${van.price}
-        <span className='admin-vanroute-day'>/day</span>
+        <span className='host-vanroute-day'>/day</span>
       </p>
     </div>
   )

@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 
-const AdminLayout = () => {
+const HostLayout = () => {
   return (
     <div>
-        <nav className='admin-links'>
+        <nav className='host-links'>
             <NavLink 
               to="." 
               end
@@ -35,4 +35,4 @@ const AdminLayout = () => {
   )
 }
 
-export default AdminLayout
+export default HostLayout

@@ -65,7 +65,7 @@ a:hover {
     color: #4D4D4D !important;
 }
 
-.about-link, .admin-link, .vans-link, .login-link, .logout-link{
+.about-link, .host-link, .vans-link, .login-link, .logout-link{
     padding-right: 1rem;
 }
 
@@ -384,7 +384,7 @@ footer {
     font-size: 18px;
 }
 
-.admin-links{
+.host-links{
     display: flex;
     gap: 20px;
     font-weight: 500;
@@ -394,22 +394,22 @@ footer {
     padding: 20px;
 }
 
-.admin-van-links{
+.host-van-links{
     padding-top: 20px;
     gap: 20px;
 }
 
-/* .admin-van-links:hover{
+/* .host-van-links:hover{
     font-weight: bold;
 } */
 
-.admin-van-img{
+.host-van-img{
     width: 160.15px;
     height: 157.9px;
     border-radius: 5px;
 }
 
-.admin-van-imgs{
+.host-van-imgs{
     width: 65.88px;
     height: 65.88px;
     border-radius: 5px;
@@ -420,39 +420,39 @@ footer {
 }
 
 
-.admin-van{
+.host-van{
     background: #FFFFFF;
     border-radius: 6px;
     margin-top: 10px;
 }
 
-.admin-title{
+.host-title{
     font-weight: 700;
     font-size: 32px;
 }
 
-.admin-van-data{
+.host-van-data{
     padding-left: 20px;
     display: flex;
     justify-content: center;
     align-self: center;
 }
 
-.admin-vanroute-data{
+.host-vanroute-data{
     padding-left: 15px;
     display: grid;
     justify-content: center;
     align-self: center;
 }
 
-.admin-vanroute-img{
+.host-vanroute-img{
     width: 103px;
     height: 101.56px;
     padding-top: 30px;
     border-radius: 5px;
 }
 
-.admin-vanroute-details{
+.host-vanroute-details{
     font-weight: bold;
 }
 
@@ -470,7 +470,7 @@ footer {
     font-weight: normal;
 }
 
-.admin-vanroute-btn{
+.host-vanroute-btn{
     width: 69.8px;
     height: 27.59px;
     color: #FFEAD0;
@@ -478,29 +478,29 @@ footer {
     border-radius: 5px;
 }
 
-.admin-vanroute-name{
+.host-vanroute-name{
     font-style: normal;
     font-weight: 700;
     font-size: 26.0583px;
 }
 
-.admin-vanroute-price{
+.host-vanroute-price{
     font-style: normal;
     font-weight: 700;
     font-size: 19.5437px;
 }
 
-.admin-vanroute-day{
+.host-vanroute-day{
     font-weight: 500;
     font-size: 16.2864px;
 }
 
-.admin-van-name{
+.host-van-name{
     font-weight: 600;
     font-size: 20px;
 }
 
-.admin-van-price{
+.host-van-price{
     font-weight: 500;
     font-size: 16px;
     color: #4D4D4D;

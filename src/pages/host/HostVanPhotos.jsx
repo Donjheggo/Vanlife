@@ -8,7 +8,7 @@ const Photos = () => {
 
   return (
     <div>
-      <img src={van.image} className="admin-vanroute-img"/>
+      <img src={van.image} className="host-vanroute-img"/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-
+//////////////// FAKE API ////////////////////////
 
 const getVans = async () => {
     const res = await fetch("/api/vans")

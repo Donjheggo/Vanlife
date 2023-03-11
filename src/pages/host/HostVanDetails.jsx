@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, NavLink, Outlet } from 'react-router-dom'
 import backimg from "/images/backicon.svg"
 
-const AdminVanLayout = () => {
+const HostVanLayout = () => {
 
     const params = useParams()
 
@@ -27,15 +27,15 @@ const AdminVanLayout = () => {
       </div>
       <div className='container bg-white pt-2 pb-2 mt-2'>
         <div className='d-flex'>
-          <img src={van.image} className="admin-van-img"/>
-          <div className='admin-vanroute-data'>
-            <button style={btnColor} className='admin-vanroute-btn mt-2'>{van.type}</button>
-            <p className='admin-vanroute-name'>{van.name}<br/>
-              <span className='admin-vanroute-price'>${van.price}<span className='admin-vanroute-day'>/day</span></span>
+          <img src={van.image} className="host-van-img"/>
+          <div className='host-vanroute-data'>
+            <button style={btnColor} className='host-vanroute-btn mt-2'>{van.type}</button>
+            <p className='host-vanroute-name'>{van.name}<br/>
+              <span className='host-vanroute-price'>${van.price}<span className='host-vanroute-day'>/day</span></span>
             </p>
           </div>
         </div>
-        <nav className='admin-van-links'>
+        <nav className='host-van-links'>
           <NavLink end to="." className={({isActive}) => isActive ? 'active-link' : ""}>Details</NavLink>
           <NavLink to="pricing" className={({isActive}) => isActive ? 'active-link' : ""}>Pricing</NavLink>
           <NavLink to="photos" className={({isActive}) => isActive ? 'active-link' : ""}>Photos</NavLink>
@@ -46,4 +46,4 @@ const AdminVanLayout = () => {
   )
 }
 
-export default AdminVanLayout
+export default HostVanLayout

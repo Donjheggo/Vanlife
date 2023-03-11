@@ -86,6 +86,11 @@ createServer({
             const id = request.params.id
             return schema.vans.find(id)
         })
+
+        this.get("/host/vans", (schema, request) => {
+            return schema.vans.where({ id: "1" })
+        })
+
         this.post("/login", (schema, request) => {
             const { email, password } = JSON.parse(request.requestBody)
             const foundUser = schema.users.findBy({ email, password })

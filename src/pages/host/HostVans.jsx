@@ -1,14 +1,15 @@
 import React from 'react'
-import AdminVan from '../../components/admin/AdminVan'
+import HostVan from '../../components/host/HostVan'
 import { Link, defer, Await, useLoaderData } from 'react-router-dom'
-import getVans from "../../api/api"
+// import getVans from "../../api/api"
+import { getHostVans } from '../../api/firebase'
 
 
-export const vansAdminLoader = () => {
-  return defer({vans: getVans()})
+export const vansHostLoader = () => {
+  return defer({vans: getHostVans()})
 }
 
-const AdminVans = () => {
+const HostVans = () => {
 
   const vansLoader = useLoaderData()
 
@@ -16,7 +17,7 @@ const AdminVans = () => {
     const elements = vansLoaded.map(van => (
       <div key={van.id}>
         <Link to={van.id}>
-          <AdminVan
+          <HostVan
             name={van.name}
             price={van.price}
             image={van.image}
@@ -34,7 +35,7 @@ const AdminVans = () => {
 
   return (
     <div className='container mb-2'>
-      <p className='admin-title'>Your listed vans</p>
+      <p className='host-title'>Your listed vans</p>
       
       <React.Suspense fallback={<h1>Loading vans...</h1>}>
         <Await resolve={vansLoader.vans}>
@@ -46,4 +47,4 @@ const AdminVans = () => {
   )
 }
 
-export default AdminVans
+export default HostVans

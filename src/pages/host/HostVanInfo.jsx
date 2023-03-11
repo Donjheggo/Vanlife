@@ -1,12 +1,12 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 
-const AdminVanDetails = () => {
+const HostVanDetails = () => {
   
   const {van} = useOutletContext()
 
   return (
-    <div className='admin-vanroute-details'>
+    <div className='host-vanroute-details'>
       <p>Name: <span className='f-w-normal'>{van.name}</span> </p>
       <p>Category: <span className='f-w-normal'>{van.type}</span> </p>
       <p>Description: <span className='f-w-normal'>{van.description}</span></p>
@@ -15,4 +15,4 @@ const AdminVanDetails = () => {
   )
 }
 
-export default AdminVanDetails
+export default HostVanDetails
