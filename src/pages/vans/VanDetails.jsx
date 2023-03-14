@@ -15,6 +15,7 @@ const VanDetails = () => {
     const location = useLocation()
     const urlParams = location ? location.state.search : null
     const vanType = location.state.type || "all"
+    console.log(location.state.type)
 
     const renderVanDetails = (van) => {
         const btnColor = {
